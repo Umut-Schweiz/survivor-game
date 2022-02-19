@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class Player {
-    private int damage, healthy, money;
+    private int damage, healthy, money, realHealthy;
     private String name, charName;
     private Inventory inv;
     Scanner scan = new Scanner(System.in);
@@ -14,28 +14,16 @@ public class Player {
     public void selectChar() {
         switch (charMenu()) {
             case 1:
-                setCharName("Samurai");
-                setDamage(5);
-                setHealthy(21);
-                setMoney(15);
+                initPlayer("Samurai" , 5 , 21 , 15);
                 break;
             case 2:
-                setCharName("Archer");
-                setDamage(7);
-                setHealthy(18);
-                setMoney(20);
+                initPlayer("Archer" , 7 , 18 , 20);
                 break;
             case 3:
-                setCharName("Knight");
-                setDamage(8);
-                setHealthy(24);
-                setMoney(5);
+                initPlayer("Knight" , 8 , 24 , 5);
                 break;
             default:
-                setCharName("Samurai");
-                setDamage(8);
-                setHealthy(24);
-                setMoney(5);
+                initPlayer("Samurai" , 5 , 21 , 14);
         }
         System.out.println("Your character was created");
         System.out.println("Your character is " + getCharName() + "\tDamage:" + getDamage() + "\t Healthy:" + getHealthy() + "\t Money:" + getMoney());
@@ -55,6 +43,14 @@ public class Player {
         }
 
         return charID;
+    }
+
+    public void initPlayer(String charName, int damage, int healthy, int money) {
+        setCharName(charName);
+        setDamage(damage);
+        setHealthy(healthy);
+        setMoney(money);
+        setHealthy(healthy);
     }
 
     public int getDamage() {
@@ -103,5 +99,13 @@ public class Player {
 
     public void setInv(Inventory inv) {
         this.inv = inv;
+    }
+
+    public int getRealHealthy() {
+        return realHealthy;
+    }
+
+    public void setRealHealthy(int realHealthy) {
+        this.realHealthy = realHealthy;
     }
 }
