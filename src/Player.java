@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class Player {
-    private int damage, healthy, money, realHealthy;
+    private int damage, healthy, money, realHealth;
     private String name, charName;
     private Inventory inv;
     Scanner scan = new Scanner(System.in);
@@ -107,10 +107,10 @@ public class Player {
     }
 
     public int getRealHealthy() {
-        return realHealthy;
+        return realHealth;
     }
 
     public void setRealHealthy(int realHealthy) {
-        this.realHealthy = realHealthy;
+        this.realHealth = realHealthy;
     }
 }
