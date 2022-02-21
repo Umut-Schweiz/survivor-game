@@ -1,5 +1,4 @@
 import java.util.Scanner;
-
 public abstract class Location {
     protected Player player;
     protected String name;
@@ -10,7 +9,6 @@ public abstract class Location {
     }
 
     public abstract boolean getLocation();
-
 
     public Player getPlayer() {
         return player;

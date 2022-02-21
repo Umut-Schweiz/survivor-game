@@ -26,6 +26,7 @@ public class Game {
             System.out.println("4. River --> You encounter bears!");
             System.out.println("5. Store --> You can buy weapon or armor");
             int selectLoc = scan.nextInt();
+            /*TODO: Here may be created try catch block */
             while (selectLoc < 0 || selectLoc > 5) {
                 System.out.println("Please select a valid location : ");
                 selectLoc = scan.nextInt();
@@ -50,6 +51,14 @@ public class Game {
                 default:
                     location = new SafeHouse(player);
             }
+
+            if (location.getName().equals("SafeHouse")){
+                if (player.getInv().isFirewood() && player.getInv().isFood() && player.getInv().isWater()) {
+                    System.out.println("Congratulations, you won the game!");
+                    break;
+                }
+            }
+
             if(!location.getLocation()) {
                 System.out.println("Game is over");
                 break;
